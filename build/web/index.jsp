@@ -50,6 +50,9 @@
         <header class="header">
             <nav class=" navbar navbar-style">
                 <div class="container">
+                	<div class="navbar-header">
+                		
+                	</div>
                     
                 </div>
             </nav>
