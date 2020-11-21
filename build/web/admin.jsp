@@ -49,57 +49,16 @@
              <!-- -->
              <div class="row mt-3">
                  
-                 <!-- first col -->
-                 <div class="col-md-2">
-                     
-                     <div class="card">
-                         <div class="card-body text-center">
-                             <div class="container">
-                                 <img class="img-fluid rounded-circle" src="img/box.png" alt="Products Image" style="max-width: 70px;">
-                             </div>
-                              <h6>2</h6>
-                              <h5 class="text-uppercase text-muted">Products</h5>
-                         </div>
-                     </div>
-                     
-                 </div>
-                 <!-- second col -->
-                 <div class="col-md-2">
-                     
-                     <div class="card">
-                         <div class="card-body text-center">
-                             <div class="container">
-                                 <img class="img-fluid rounded-circle" src="img/box.png" alt="Products Image" style="max-width: 70px;">
-                             </div>
-                              <h6>2</h6>
-                              <h5 class="text-uppercase text-muted">Products</h5>
-                         </div>
-                     </div>
-                     
-                 </div>
-                 <!-- third col -->
-                 <div class="col-md-2">
-                     
-                     <div class="card">
-                         <div class="card-body text-center">
-                             <div class="container">
-                                 <img class="img-fluid rounded-circle" src="img/box.png" alt="Products Image" style="max-width: 70px;">
-                             </div>
-                              <h6>2</h6>
-                              <h5 class="text-uppercase text-muted">Products</h5>
-                         </div>
-                     </div>
-                     
-                 </div>
+                 
                  
         
 <!-- ***************************************add-category-modal *******************************-->
-                 <div class="col-md-2">
+                 <div class="col-md-5">
                      
                      <div class="card" data-toggle="modal" data-target="#add-category-modal">
                          <div class="card-body text-center">
                              <div class="container">
-                                 <img class="img-fluid rounded-circle" src="img/plus.png" alt="Add Product Image" style="max-width: 70px;">
+                                 <img class="img-fluid rounded-circle" src="img/cat1.png" alt="Add Product Image" style="max-width: 70px;">
                              </div>
                              <h6 class="text-uppercase text-muted">Add New Category</h6>
                               
@@ -108,12 +67,12 @@
                      
                  </div>
 <!-- ***************************************add-Options-modal *******************************-->
-                 <div class="col-md-2">
+                 <div class="col-md-4">
                      
                      <div class="card" data-toggle="modal" data-target="#add-option-modal">
                          <div class="card-body text-center">
                              <div class="container">
-                                 <img class="img-fluid rounded-circle" src="img/box.png" alt="Add Product Image" style="max-width: 70px;">
+                                 <img class="img-fluid rounded-circle" src="img/plus.png" alt="Add Product Image" style="max-width: 70px;">
                              </div>
                              <h6 class="text-uppercase text-muted">Add New Options</h6>
                               
@@ -122,12 +81,12 @@
                      
                  </div>
   <!-- ***************************************add-choice-modal *******************************-->
-                 <div class="col-md-2">
+                 <div class="col-md-3">
                      
                      <div class="card" data-toggle="modal" data-target="#add-choice-modal">
                          <div class="card-body text-center">
                              <div class="container">
-                                 <img class="img-fluid rounded-circle" src="img/list.png" alt="Add Product Image" style="max-width: 70px;">
+                                 <img class="img-fluid rounded-circle" src="img/plus.png" alt="Add Product Image" style="max-width: 70px;">
                              </div>
                              <h6 class="text-uppercase text-muted">Add New Choice</h6>
                               
@@ -290,74 +249,9 @@
 
     
     <!-- ************************************************************************************************** -->
-    <div class="container admin">
-        <!-- Top Page -->
-        <div class="container-fluid mt-3 text-center" >
-            <h1> Category </h1>
-        </div>
-        <!-- -->
-        <div class="row mt-3">
-    <table class="table">
-     <thead class="thead-dark">
-    <tr>
-      <th scope="col">#Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Action</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% for(Category c1:listcategorys){  %>
-      <tr>
-      <th scope="row"><%=c1.getCatId()%></th>
-      <td><%=c1.getCatName()%></td>
-      <td><button class="btn btn-primary" >Update </button></td>
-      <td><button class="btn btn-danger" >Remove </button></td>
-      </tr>
-    <% }%>
-  </tbody>
-</table>
-            
-             </div>
-    </div>  
-  
-  <div class="container admin">
-        <!-- Top Page -->
-        <div class="container-fluid mt-3 text-center" >
-            <h1> Options </h1>
-        </div>
-        <!-- -->
-        <div class="row mt-3">
-    <table class="table">
-     <thead class="thead-dark">
-    <tr>
-      <th scope="col">#Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Cat Id</th>
-      <th scope="col">Cat Name</th>
-      <th scope="col">Date Add</th>
-      <th scope="col">Action</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% for(Category c1:listcategorys){  %>
-      <tr>
-      <th scope="row"><%=c1.getCatId()%></th>
-      <td><%=c1.getCatName()%></td>
-      <td>5</td>
-      <td><%=c1.getCatName()%></td>
-      <td>20-11-2020</td>
-      <td><button class="btn btn-primary" >Update </button></td>
-      <td><button class="btn btn-danger" >Remove </button></td>
-      </tr>
-    <% }%>
-  </tbody>
-</table>
-            
-             </div>
-    </div>  
-  
+     <%@include file="components/panel.jsp" %> 
+     
+ 
   
   
   

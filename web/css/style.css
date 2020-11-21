@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Gugi&family=Lato:wght@700&family=Roboto&family=Sofia&display=swap');
+:root{
+--light-gray : #2b3032a1;
+--primary-color : #45ccb8;
+--border : #2b303218;
+--text-color : #ff686b;
+
+--robot :"Robot",sans-serif;
+--guji :"Guji",cursive;
+--sofia :"Sofia",cursive;
+}
+body
+{
+    font-family:cursive;
+}
 .custom-bg{
   /*  background: #7e57c2!important;*/
-   background: #50A165!important;
+   background: darkorange!important;
 }
 .admin .card{
     border: 1px solid #000000;
@@ -14,8 +29,8 @@
 .list-group-item.active{
     /* background: #7e57c2!important;
      border-color: #7e57c2!important; */
-     background: #50A165!important;
-     border-color: #50A165!important;
+     background: darkorange!important;
+     border-color: darkorange!important;
 }
 
 .discount-label{
@@ -33,3 +48,42 @@
   border-color: #00C851;
   background-color: #00C851;
 }
+/* new header */
+header{
+  height: 100vh;
+}
+
+header-style{
+  box-shadow: 0 5px 10px #efefef;
+}
+.logo{
+  height: 30px;
+  padding: 2px 10px;
+}
+.big-text{
+  font-size: 52px;
+  margin: 20px 0;
+  color: darkorange;
+}
+
+a.btn{
+  margin: 30px;
+  width: 150px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+a.btn-first{
+  background-color: darkorange;
+  color: #fff;
+}
+
+a.btn-second{
+  background: transparent;
+  border: 1px solid darkorange;
+  color: #333;
+}
+
+
+
+

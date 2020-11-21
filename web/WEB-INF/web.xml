@@ -20,6 +20,10 @@
         <servlet-name>SrvBtnVoted</servlet-name>
         <servlet-class>Servlet.SrvBtnVoted</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SrvPanel</servlet-name>
+        <servlet-class>Servlet.SrvPanel</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SrvRegester</servlet-name>
         <url-pattern>/SrvRegester</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>SrvBtnVoted</servlet-name>
         <url-pattern>/SrvBtnVoted</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SrvPanel</servlet-name>
+        <url-pattern>/SrvPanel</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -47,137 +47,29 @@
     <body>
         <%@include file="components/navbar.jsp" %>
         
-        <header class="header">
-            <nav class=" navbar navbar-style">
-                <div class="container">
-                	<div class="navbar-header">
-                		
-                	</div>
-                    
-                </div>
-            </nav>
-        </header>
-        
-        
-        
-        
-        <div class="container-fluid mt-3">
-            <%@include file="components/message.jsp" %>
-        <div class="row mx-2">
-            
-        <div class="col-md-2">
-               
-                <div class="list-group mt-4">
-                    <a href="index.jsp?category=all" class="list-group-item list-group-item-action active">All Category</a>
-                   <%
-                    for(Category c1:listcategorys){
-                     %>  
-                     <a href="index.jsp?category=<%=c1.getCatId()%>" class="list-group-item list-group-item-action "> <%=c1.getCatName()%> </a>
-                    <%
-                    }
-                    %>
-                </div>
-                
-              
-            </div>
-      <div class="col-md-10">
-       <!-- Row -->
-                <div class="row mt-4">
-                    
-                    <!-- Col : 12 -->
-                    <div class="col-md-12 ">    
-            <!-- Cards -->
-         <div class="card-columns">
-         <!--  <div class="card-deck">  -->
-              
-             <% for(Options c1: listOptions){
-             
-                 listChoices=daoChoices.getAllChoices(c1.getOpId());
-                 if(!(listChoices.isEmpty()) ){ 
-             %>
-                   <!-- Card 01 -->
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><%=c1.getOpName()%></h5>
+       <header class="header" style="font-family: cursive">
+       	<div class="container mt-3 ">
+       		<div class="row">
+       			
+       			<div class="col-sm-6">
+       				<h1>You Want To Voting !! </h1>
+       				<p class="big-text"> Welcome! Voting online..</p>
+       				<p>Welcome! With Us u can now to voting online.. Welcome! With Us u can now to voting online.. Welcome! With Us u can now to voting online.. </p>
 
-                       
-        <!-- ******************************** form ******************************************************* -->   
-                   
-             <form action="SrvBtnVoted" method="post">
-                    
-                   <% 
-                    for(Choices ch: listChoices){  
-                    
-                    %>
-                        
-                 <%if( userNow!= null){
-                if(duo.isVoted(userNow.getUserId(), c1.getOpId()) ){ 
-                 int TotalVoted = daoChoices.getNmbrVotedByIdOpt(c1.getOpId());
-                 int nbrVoted =daoChoices.getNmbrVotedChooice(ch.getChId());
-                 double rs= (nbrVoted * 100) / TotalVoted;
-                
-               //  String rsl =String.valueOf(rs).substring(0, 5); 
-               %>  <h6><%=ch.getChName()%> </h6>
-                    <div class="progress">
-                       <div class="progress-bar bg-info" role="progressbar" style="width: <%=rs%>%;" aria-valuenow="<%=rs%>" aria-valuemin="0" aria-valuemax="100"><%=rs%>% </div>
-                    </div>
-                 <% }else{ %>
-                    <!--Radio group-->
-                        <div class="form-check radio-green">
-                            <input type="radio" class="form-check-input" id="<%=ch.getChId()%>" value="<%=ch.getChId()%>" name="idchoice">
-                            <label class="form-check-label" for="radioGreen1"><%=ch.getChName()%> </label>
-                        </div> 
-            <% }}else{ %>   
-                    <!--Radio group-->
-                        <div class="form-check radio-green">
-                            <input type="radio" class="form-check-input" id="<%=ch.getChId()%>" value="<%=ch.getChId()%>" name="idchoice">
-                            <label class="form-check-label" for="radioGreen1"><%=ch.getChName()%> </label>
-                        </div> 
-            <% } %>  
-                 
-                        
-                        
-                <% } %>
-                    
-                </div>
-                
-                <div class="card-footer">
-                
-                   <input type="hidden" value="<%=c1.getOpId()%>" name="idoption"/>
-                   <input type="hidden" value="<%=c1.getOpName()%>" name="nameoption"/>
-                   
-            <%if( userNow!= null){
-                if(duo.isVoted(userNow.getUserId(), c1.getOpId()) ){ %>                 
-                <small class="text-muted"> U are voting here : <%=duo.nameChoiceSelected(userNow.getUserId(), c1.getOpId())%> </small>
-                  
-            <% }else{ %>
-                    <button class="btn btn-outline-success btn-secondary text-white">Voted</button> 
-            <% }}else{ %>   
-                    <button class="btn btn-success text-white">Voted</button> 
-            <% } %>  
-                      
-                  <small class="text-muted"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <%=c1.getOpDate().substring(0, 16)%> </small>
-                  </form> 
-                </div>
-               
-            </div> 
-             <% }} %>
-              
-             
-            
-          </div>
-            
-  <!-- fin cards -->
-      </div>
-      </div>  
-      </div> 
-  <!-- fiiiiiiiiiiiiiiiiiiiiin -->
-        </div>
-        </div>
-            
-            
-            
-        
- 
+       				<a href="normal.jsp" class="btn1 btn btn-first"> Voting Now</a>
+       				<a href="login.jsp" class="btn1 btn btn-second">Login</a>
+
+       			</div>
+
+       			<div class="col-sm-3">
+       				
+       			</div>
+       			<div class="col-sm-3">
+       				<img src="img/vote.png" class="img-responsive">
+       			</div>
+       		</div>
+       	</div>
+       </header> 
+  
     </body>
 </html>

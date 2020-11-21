@@ -57,10 +57,10 @@ public class SrvLogin extends HttpServlet {
                      httpSession.setAttribute("current-username", us.getUserName());
                      
                      if(us.getUserType().equalsIgnoreCase("admin")){
-                                  response.sendRedirect("index.jsp");
+                                  response.sendRedirect("admin.jsp");
                               }else 
                                   if(us.getUserType().equalsIgnoreCase("normal")){
-                                  response.sendRedirect("index.jsp");
+                                  response.sendRedirect("normal.jsp");
                               }else{
                                   httpSession.setAttribute("message", "We have not your identified user type");
                               }
