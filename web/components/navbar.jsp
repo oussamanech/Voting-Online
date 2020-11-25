@@ -32,7 +32,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                  <ul class="navbar-nav nav  navbar-right mr-auto ">
                    </li><li class="nav-item active">
-                       <a class="nav-link" href="index.jsp" >Home </a>
+                       <a class="nav-link" href="index.jsp" >Home ? </a>
                    </li>
 
                    </li><li class="nav-item active">
