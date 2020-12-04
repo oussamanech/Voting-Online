@@ -1,4 +1,3 @@
-
 package Servlet;
 
 import Entity.Dao.DaoUsers;
@@ -17,64 +16,63 @@ import javax.servlet.http.HttpSession;
 
 public class SrvLogin extends HttpServlet {
 
-        Connection connection = null; 
-        Statement statement = null; 
-        ResultSet resultSet = null; 
- 
-        private String url = "jdbc:mysql://localhost/voting"; 
-        private String user = "root"; 
-        private String password = ""; 
-    
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+
+    private String url = "jdbc:mysql://localhost/voting";
+    private String user = "root";
+    private String password = "";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                       throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8, ISO-8859-1");
         try (PrintWriter out = response.getWriter()) {
-           
-             try {
-                 
-                 Class.forName("com.mysql.jdbc.Driver").newInstance(); 
-                 connection = DriverManager.getConnection(url, user, password);      
-                 statement = connection.createStatement();
-                 
-                 // coding area
+
+            try {
+
+                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                connection = DriverManager.getConnection(url, user, password);
+                statement = connection.createStatement();
+
+                // coding area
                 String eml = request.getParameter("email");
                 String pas = request.getParameter("password");
-                
+
                 //validation
-                
                 //authenticating user
-                 DaoUsers daoUsers =new DaoUsers();
-                 Users us = daoUsers.getUserPyEmailAndPassword(eml, pas);
-                 HttpSession httpSession = request.getSession();
-                 
-                 if(us == null){
-                      httpSession.setAttribute("message", "Invailed Detail !! try with another one  "); 
-                      response.sendRedirect("login.jsp");
-                      return;
-                 }else{
-                     httpSession.setAttribute("current-user", us.getUserType());
-                     httpSession.setAttribute("currentUser", us);
-                     httpSession.setAttribute("current-username", us.getUserName());
-                     
-                     if(us.getUserType().equalsIgnoreCase("admin")){
-                                  response.sendRedirect("admin.jsp");
-                              }else 
-                                  if(us.getUserType().equalsIgnoreCase("normal")){
-                                  response.sendRedirect("normal.jsp");
-                              }else{
-                                  httpSession.setAttribute("message", "We have not your identified user type");
-                              }
-                     
-                 }
-                 
-                 
+                DaoUsers daoUsers = new DaoUsers();
+                Users us = daoUsers.getUserPyEmailAndPassword(eml, pas);
+                HttpSession httpSession = request.getSession();
+
+                if (us == null) {
+                    httpSession.setAttribute("message", "Invailed Detail !! try with another one  ");
+                    response.sendRedirect("login.jsp");
+                    return;
+                } else {
+                    httpSession.setAttribute("current-user", us.getUserType());
+                    httpSession.setAttribute("currentUser", us);
+                    httpSession.setAttribute("current-username", us.getUserName());
+
+                    if (us.getUserType().equalsIgnoreCase("admin")) {
+                        response.sendRedirect("admin.jsp");
+                    } else {
+                        if (us.getUserType().equalsIgnoreCase("normal")) {
+                            response.sendRedirect("normal.jsp");
+                        } else {
+                            httpSession.setAttribute("message", "We have not your identified user type");
+                        }
+                    }
+
+                }
+
             } catch (Exception e) {
-               out.println( "\n -getLocalizedMessage : "  +e.getLocalizedMessage());
-               out.println( "\n -getMessage : "  +e.getMessage());
-               out.println( "\n -toString : "  +e.toString());
-               e.printStackTrace() ;
+                out.println("\n -getLocalizedMessage : " + e.getLocalizedMessage());
+                out.println("\n -getMessage : " + e.getMessage());
+                out.println("\n -toString : " + e.toString());
+                e.printStackTrace();
             }
-            
+
         }
     }
 

@@ -46,11 +46,11 @@ public class SrvOptions extends HttpServlet {
                     String catTitel = request.getParameter("catTitel").toString();
 
                     String query = "INSERT INTO `category` (`catId`, `catName`) VALUES (NULL, '" + catTitel + "');";
-                     int n = statement.executeUpdate(query);
+                    int n = statement.executeUpdate(query);
 
-                      HttpSession httpSession = request.getSession();
-                      httpSession.setAttribute("message", "Category Add Successfully : "  +catTitel );
-                     response.sendRedirect("admin.jsp");
+                    HttpSession httpSession = request.getSession();
+                    httpSession.setAttribute("message", "Category Add Successfully : " + catTitel);
+                    response.sendRedirect("admin.jsp");
                     return;
 
                     //------------------------------------------------------------------------------------------------------------------------- 

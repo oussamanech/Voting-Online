@@ -1,4 +1,3 @@
-
 package Servlet;
 
 import java.io.IOException;
@@ -14,97 +13,98 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class SrvPanel extends HttpServlet {
-        Connection connection = null; 
-        Statement statement = null; 
-        ResultSet resultSet = null; 
- 
-        private String url = "jdbc:mysql://localhost/voting"; 
-        private String user = "root"; 
-        private String password = ""; 
-  
+
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+
+    private String url = "jdbc:mysql://localhost/voting";
+    private String user = "root";
+    private String password = "";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
                       throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8, ISO-8859-1");
         try (PrintWriter out = response.getWriter()) {
-              HttpSession httpSession = request.getSession();
+            HttpSession httpSession = request.getSession();
             try {
-                Class.forName("com.mysql.jdbc.Driver").newInstance(); 
-                 connection = DriverManager.getConnection(url, user, password);      
-                 statement = connection.createStatement();
-                 
+                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                connection = DriverManager.getConnection(url, user, password);
+                statement = connection.createStatement();
+
                 //get id name :
                 String idd = request.getParameter("id");
                 String namee = request.getParameter("name");
-                 
-                 //Get Parameter operation
+
+                //Get Parameter operation
                 String operation = request.getParameter("operation");
-               // remove Category or update
-               if(operation.equalsIgnoreCase("catdelete")){
-                    String rmv= "DELETE FROM `category` WHERE `category`.`catId` = "+idd+";";
+                // remove Category or update
+                if (operation.equalsIgnoreCase("catdelete")) {
+                    String rmv = "DELETE FROM `category` WHERE `category`.`catId` = " + idd + ";";
                     int n = statement.executeUpdate(rmv);
-                    String rmv2= "DELETE FROM `option` WHERE `option`.`catid` = "+idd+";";
+                    String rmv2 = "DELETE FROM `option` WHERE `option`.`catid` = " + idd + ";";
                     int n2 = statement.executeUpdate(rmv2);
-                    httpSession.setAttribute("message", "Delete Category : "+namee   );
+                    httpSession.setAttribute("message", "Delete Category : " + namee);
                     response.sendRedirect("admin.jsp");
                     return;
                 }
-               
-               if(operation.equalsIgnoreCase("catupdate")){
-                    String rmv= "UPDATE `category` SET `catName` = '"+namee+"' WHERE `category`.`catId` = "+idd+";";
+
+                if (operation.equalsIgnoreCase("catupdate")) {
+                    String rmv = "UPDATE `category` SET `catName` = '" + namee + "' WHERE `category`.`catId` = " + idd + ";";
                     int n = statement.executeUpdate(rmv);
-                    httpSession.setAttribute("message", "Update Category : "+namee   );
+                    httpSession.setAttribute("message", "Update Category : " + namee);
                     response.sendRedirect("admin.jsp");
                     return;
                 }
-               // remove option or update
-               if(operation.equalsIgnoreCase("optiondelete")){
-                    String rmv= "DELETE FROM `option` WHERE `option`.`opid` = "+idd+";";
+                // remove option or update
+                if (operation.equalsIgnoreCase("optiondelete")) {
+                    String rmv = "DELETE FROM `option` WHERE `option`.`opid` = " + idd + ";";
                     int n = statement.executeUpdate(rmv);
-                    String rmv2= "DELETE FROM `choices` WHERE `choices`.`chopid` = "+idd+";";
+                    String rmv2 = "DELETE FROM `choices` WHERE `choices`.`chopid` = " + idd + ";";
                     int n2 = statement.executeUpdate(rmv2);
-                    httpSession.setAttribute("message", "Delete Option : "+namee   );
+                    httpSession.setAttribute("message", "Delete Option : " + namee);
                     response.sendRedirect("admin.jsp");
                     return;
                 }
-               
-               if(operation.equalsIgnoreCase("optionupdate")){
-                    String rmv= "UPDATE `option` SET `opname` = '"+namee+"' WHERE `option`.`opid` = "+idd+";";
+
+                if (operation.equalsIgnoreCase("optionupdate")) {
+                    String rmv = "UPDATE `option` SET `opname` = '" + namee + "' WHERE `option`.`opid` = " + idd + ";";
                     int n = statement.executeUpdate(rmv);
-                    httpSession.setAttribute("message", "Update Option : "+namee   );
+                    httpSession.setAttribute("message", "Update Option : " + namee);
                     response.sendRedirect("admin.jsp");
                     return;
                 }
-               // remove choices or update
-               if(operation.equalsIgnoreCase("chdelete")){
-                    String rmv= "DELETE FROM `choices` WHERE `choices`.`chid` = "+idd+";";
+                // remove choices or update
+                if (operation.equalsIgnoreCase("chdelete")) {
+                    String rmv = "DELETE FROM `choices` WHERE `choices`.`chid` = " + idd + ";";
                     int n = statement.executeUpdate(rmv);
-                   
-                    httpSession.setAttribute("message", "Delete Choice : "+namee   );
+
+                    httpSession.setAttribute("message", "Delete Choice : " + namee);
                     response.sendRedirect("admin.jsp");
                     return;
                 }
-               
-               if(operation.equalsIgnoreCase("chupdate")){
-                    String rmv= "UPDATE `choices` SET `chname` = '"+namee+"' WHERE `choices`.`chid` = "+idd+";";
+
+                if (operation.equalsIgnoreCase("chupdate")) {
+                    String rmv = "UPDATE `choices` SET `chname` = '" + namee + "' WHERE `choices`.`chid` = " + idd + ";";
                     int n = statement.executeUpdate(rmv);
-                    httpSession.setAttribute("message", "Update Choice : "+namee   );
+                    httpSession.setAttribute("message", "Update Choice : " + namee);
                     response.sendRedirect("admin.jsp");
                     return;
                 }
-               // remove Users
-               if(operation.equalsIgnoreCase("userdelete")){
-                    String rmv= "DELETE FROM `user` WHERE `user`.`uid` = "+idd+";";
+                // remove Users
+                if (operation.equalsIgnoreCase("userdelete")) {
+                    String rmv = "DELETE FROM `user` WHERE `user`.`uid` = " + idd + ";";
                     int n = statement.executeUpdate(rmv);
-                   
-                    httpSession.setAttribute("message", "Delete User : "+namee   );
+
+                    httpSession.setAttribute("message", "Delete User : " + namee);
                     response.sendRedirect("admin.jsp");
                     return;
                 }
-            
+
             } catch (Exception e) {
-                out.println( "\n -getLocalizedMessage : "  +e.getLocalizedMessage());
+                out.println("\n -getLocalizedMessage : " + e.getLocalizedMessage());
             }
-        
+
         }
     }
 

@@ -15,7 +15,7 @@
                     <div class="card mt-3">
 
                         <div class="card-header custom-bg text-white">
-                            <h3>Login here</h3>
+                            <h3>Вход</h3>
                         </div>
                         <div class="card-body">
 
@@ -23,21 +23,21 @@
 
                             <form action="SrvLogin" method="post">
                                 <div class="form-group">
-                                    <label >Email address</label>
+                                    <label >Email</label>
                                     <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label >Password</label>
+                                    <label >пароль</label>
                                     <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
                                 </div>
                                 <a href="regestire.jsp" class="text-center d-block mb-3">
-                                    sing up !
+                                    Регистрация !
                                 </a>
 
                                 <div class="container text-center"> 
-                                    <button type="submit" class="btn btn-primary custom-bg border-0">Submit</button>
-                                    <button type="reset" class="btn btn-primary custom-bg border-0">Reset</button>
+                                    <button type="submit" class="btn btn-primary custom-bg border-0">Войти</button>
+                                    <button type="reset" class="btn btn-primary custom-bg border-0">Отмена</button>
                                 </div>
                             </form>
                         </div>

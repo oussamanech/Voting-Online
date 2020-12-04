@@ -10,12 +10,13 @@
 <%@page import="java.util.ArrayList"%>
 
 <%
+
     Users userNow = (Users) session.getAttribute("currentUser");
 
     DaoUsers_Options duo = new DaoUsers_Options();
 
     DaoCategory daoCategory = new DaoCategory();
-        List<Category> listcategorys = daoCategory.getAllCategory();
+    List<Category> listcategorys = daoCategory.getAllCategory();
 
     DaoOptions daoOptions = new DaoOptions();
     List<Options> listOptions = daoOptions.getAlldaoOptions();
@@ -33,6 +34,21 @@
         int catId1 = Integer.parseInt(cat);
         listOptions = daoOptions.getAlldaoOptions(catId1);
     }
+
+    HttpSession http = request.getSession();
+    //-****************-//
+    http.setAttribute("login", "Войти");
+    http.setAttribute("creat", "Регистрация");
+    //-**************-//
+    http.setAttribute("Home", "главная");
+    http.setAttribute("votingnow", "голосование сейчас");
+    http.setAttribute("cat", "категория");
+    http.setAttribute("allcat", "Все категории");
+    http.setAttribute("service", "оказание услуг");
+    http.setAttribute("about", "об использовании");
+    http.setAttribute("contact", "контакт");
+    //-*****************-//
+    http.setAttribute("logout", "выйти");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -52,12 +68,15 @@
                 <div class="row">
 
                     <div class="col-sm-6">
-                        <h1>You Want To Voting !! </h1>
-                        <p class="big-text"> Welcome! Voting online..</p>
-                        <p>Welcome! With Us u can now to voting online.. Welcome! With Us u can now to voting online.. Welcome! With Us u can now to voting online.. </p>
+                        <h1>Вы хотите проголосовать !! </h1>
+                        <p class="big-text"> Добро пожаловать! Голосование онлайн..</p>
+                        <p>Добро пожаловать! С нами теперь вы можете голосовать онлайн.. 
+                            Добро пожаловать! С нами теперь вы можете голосовать онлайн.. 
+                            Добро пожаловать! С нами теперь вы можете голосовать онлайн.. 
+                        </p>
 
-                        <a href="normal.jsp" class="btn1 btn btn-first"> Voting Now</a>
-                        <a href="login.jsp" class="btn1 btn btn-second">Login</a>
+                        <a href="normal.jsp" class="btn1 btn btn-first"> Голосование сейчас</a>
+                        <a href="login.jsp" class="btn1 btn btn-second">логин</a>
 
                     </div>
 

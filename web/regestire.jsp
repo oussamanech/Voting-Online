@@ -20,36 +20,36 @@
                            <%@include file="components/message.jsp" %>
                            
                            <div class="card-body px-5">
-                                <h3 class="text-center my-3"> Sing up !</h3>
+                                <h3 class="text-center my-3"> Регистрация !</h3>
                        
                                 <form action="SrvRegester" method="post">
                             <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name">имя</label>
                                 <input name="uname" type="text" class="form-control" id="name" placeholder="Entre Here" aria-describedby="emailHelp" required>
                            </div>
                             <div class="form-group">
-                                <label for="ufamily">Name</label>
+                                <label for="ufamily">фамилия</label>
                                 <input name="ufamily" type="text" class="form-control" id="ufamily" placeholder="Entre Here" aria-describedby="emailHelp" required>
                            </div>
                                                              
                            <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">Электронный адрес</label>
                                 <input name="uemail" type="email" class="form-control" id="email" placeholder="Entre Here" aria-describedby="emailHelp" required>
                            </div>
                            
                            <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password">пароль</label>
                                 <input name="upassword" type="password" class="form-control" id="email" placeholder="Entre Here" aria-describedby="emailHelp" required>
                            </div>
                              
                            <div class="form-group">
-                                <label for="phone">Phone</label>
+                                <label for="phone">Мобильный телефон</label>
                                 <input name="uphone" type="number" class="form-control" id="email" placeholder="Entre Here" aria-describedby="emailHelp" required>
                            </div>
                                                       
                            <div class="container text-center">
-                               <button class="btn btn-outline-success">Register</button>
-                               <button class="btn btn-outline-warning">Reset</button>
+                               <button class="btn btn-outline-success">Регистрация</button>
+                               <button class="btn btn-outline-warning">Отмена</button>
                            </div>
                            
                        </form>
